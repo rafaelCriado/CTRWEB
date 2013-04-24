@@ -1,0 +1,18 @@
+@charset "utf-8";
+/* CSS Document */
+
+#input_nova_medida{
+	color:#444; 
+	font-family:Arial, Helvetica, sans-serif; 
+	width:255px; 
+	text-align:right; 
+	float:left; 
+	padding:0 10px 0 0; 
+	height:99%;
+}
+	table#grid tr:nth-child(even) {background: #ccc}
+	table#grid tr{ line-height:30px; height:30px}
+	#excluir{ text-decoration:none;}
+	#grid{ height:inherit; margin:0px; padding:0px; font-size:10px;	}
+	#grid .k-header{ font-size:14px; font-weight:bold; color:#555; line-height:35px; padding-left:15px; font-family:Arial, Helvetica, sans-serif; }
+	

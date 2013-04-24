@@ -1,0 +1,28 @@
+//Chamada a tela de pesquisa de clientes 
+	
+	autor: Rafael Marques Criado
+	 data: 17/01/2013	
+
+     Objetivo: receber os dados do cliente em uma tela mediante a tela de pesquisa
+
+     Chamada: alimentar input da tela de pesquisa
+		
+		ex: $('a[name="cadastro_entidade_pesquisa_pessoa"]').click(); // chama tela de pesquisa;
+		    $('input[name="tipo_pesquisa_tela_retorno"]').val('pedido_orcamento|CODIGO:po_codigo_cliente,NOME:po_name');
+
+		A segunda linha alimenta o input dat tela de pesquisa passando o dadosnecessarios.
+
+   
+	Estrutura dos dados:
+		
+		tela_chamada|campo_pedido:campo_a_preencher,campo_pedido:campo_a_preencher,campo_pedido:campo_a_preencher,...
+		
+		
+
+		tela_chamada: 	nome da tela que foi criada ( Ex. pedido_orcamento, cadastro_medida, ...);
+		
+		campo_pedido: 	informação da entidade, a escrita de dados deve ser igual aos campos da pesquisa do arquivo
+				php/requisitions/entidade.ajax.php
+
+	   campo_a_preencher: 	nome do campo que deseja seja preenchido com o valor que sera retornado do campo_pedido;
+	

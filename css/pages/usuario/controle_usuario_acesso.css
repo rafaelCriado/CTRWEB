@@ -1,0 +1,22 @@
+@charset "utf-8";
+/* CSS Document */
+#input_nova_tela{
+	border-right:1px solid #ccc; 
+	color:#444; 
+	font-family:Arial, Helvetica, sans-serif; 
+	width:255px; 
+	text-align:right; 
+	float:left; 
+	padding:0 10px 0 0; 
+	height:inherit;
+}
+
+div#list_telas_acesso{
+	float:left; 
+	width:510px; 
+	margin:0 0 0 5px; 
+	text-align:left; 
+	height:inherit; 
+	overflow:auto;
+	font-size:10px;
+}

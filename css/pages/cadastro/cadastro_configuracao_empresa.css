@@ -1,0 +1,7 @@
+#tabstrip_configuracao_loja{ height:99%; width:100%; margin-top:0px}
+
+input[name="tabela_preco"]{ }
+
+
+#form_config_loja{ height:400px; background:#966; display:block; border:1px solid red;}
+#form_config_loja div{ height:400px; background:#966; display:block; border:1px solid red;}

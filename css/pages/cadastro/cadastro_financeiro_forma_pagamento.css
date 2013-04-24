@@ -1,0 +1,13 @@
+#cadastro_financeiro_forma_pagamento{ padding:0px; margin:0px;}
+div#fp_esquerda{ height:100%; width:30%; float:left; border-right:1px solid #94C0D2}
+div#fp_direita{ height:100%; width:69%; float:left; background:#FFF;}
+#campo_fp{ float:left; margin:5px;}
+
+#fp_form_sup{ height:85%;}
+#fp_form_inf{ height:15%;}
+
+#botoes_fp input { padding:5px 15px;}
+.tr_selecionada{ background:#09C; color:#fff;} 
+
+.img_carregar{ visibility:visible} 
+.oculto{ visibility:hidden}

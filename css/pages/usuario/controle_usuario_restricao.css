@@ -1,0 +1,33 @@
+@charset "utf-8";
+/* CSS Document */
+
+#restricao_lista_acesso{
+	height: 220px;
+	margin:15px 0 0 0;
+	text-align:center;
+	overflow:auto; font-family:Arial, Helvetica, sans-serif;
+}
+#restricao_lista_acesso table{ margin:0px; width:778px; margin:0 auto; background:#FFF; border:#09C; line-height:20px; text-align:left; height:160px;}
+
+#restricao_lista_acesso table tr:nth-child(1){ font-weight:bold;}
+
+
+
+#restricao_bt_salvar{ margin:10px; float:right }
+
+#restricao_empresa_usuario{
+	height:200px;
+	width:300px;
+	float:left;
+	margin:15px 0 10px 0;
+	font-family:Arial, Helvetica, sans-serif;
+	overflow:auto;
+}
+
+
+#restricao_empresa_usuario table{ margin:0px; width:300px; margin:0 auto; background:#FFF; border:#09C; line-height:20px; text-align:left;}
+
+#restricao_empresa_usuario table tr:nth-child(1){ font-weight:bold;}
+#restricao_empresa_usuario table tr:nth-child(2){ font-weight:bold;}
+
+.retorno_usuario{text-align:center; line-height:150px; color:#666;}

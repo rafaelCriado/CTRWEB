@@ -1,0 +1,7 @@
+@charset "utf-8";
+/* CSS Document */
+div#relatorios_vendedores_carteira_cliente{ margin:0px; padding:0px;}
+
+div#RCC-principal{ height:100%; width:100%; overflow:auto;}
+
+div#RCC-corpo{ margin:5px; border:1px solid grey; overflow:auto;}

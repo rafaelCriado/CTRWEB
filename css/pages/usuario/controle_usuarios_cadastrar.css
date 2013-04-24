@@ -1,0 +1,16 @@
+@charset "utf-8";
+/* CSS Document */
+#input_novo_usuario{ color:#444; font-family:Arial, Helvetica, sans-serif; text-align:right; float:left; padding:0 1% 0 0; height:100%; background:#E2F0F6; border-right:1px solid #94C0D2; width:25%; }
+
+div#list_usuarios{
+	float:left; 
+	width:73%; 
+	margin:0; 
+	text-align:left; 
+	height:inherit; 
+	overflow:auto;
+	font-size:12px;
+}
+
+#controle_usuario_cadastrar{ padding:0px; overflow:auto; }
+.title{ line-height:25px; color:#333; padding:0 5px; border:1px solid #94C0D2;}

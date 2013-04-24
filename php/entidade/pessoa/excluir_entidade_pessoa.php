@@ -1,0 +1,3 @@
+<?php 
+	//	Excluir entidade pessoa
+?>

@@ -1,0 +1,16 @@
+@charset "utf-8";
+/* CSS Document */
+
+*{ font-family:Arial, Helvetica, sans-serif; color: #666;}
+
+#login{width:400px; margin:150px auto; line-height:35px; border-radius:0; box-shadow: 5px 20px 53px #444; padding:10px; text-align:center; background:#E4E4E4; border:1px solid #000;}
+
+#login input[type="text"], input[type="password"]{ line-height:30px; height:30px; margin:5px; border:1px solid #C3C3C3}
+
+input.bt_logar{ width:100px;line-height:30px; height:30px;}
+
+#resultado{ color:red; height:35px; display:block;}
+
+body{background:#777;}
+
+

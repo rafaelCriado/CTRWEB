@@ -1,0 +1,10 @@
+#cadastro_produto_ficha_tecnica{ padding:0; margin:0; overflow:auto; }
+#tabstrip_ficha_tecnica { height: auto; width: auto; min-height: 89%; border: 0px; margin: 5px; padding: 0px; z-index:999998; }	
+.label{ text-align:right; width:100px;  float:left; line-height:25px;}
+.label input{ float:left;}
+#footer_ft { position:fixed; left:0; bottom:0; height:26px; line-height:26px; width:100%; z-index:999999; padding-left: 20px; }
+#ficha_tecnica_menu_superior{ height:10%;}
+#tela_total{ height:auto;}
+.title{ line-height:25px; color:#333; padding:0 5px; border:1px solid #94C0D2;}
+#tabela_ficha_tecnica{ padding: 5px; overflow:auto; height:84%; display:none}
+.table_ft tr{ line-height:25px;}

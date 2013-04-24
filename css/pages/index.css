@@ -1,0 +1,67 @@
+@charset "utf-8";
+
+
+/* CSS Document */
+table tr:nth-child(odd){
+		background-color:#CBE6EF;
+	}
+table tr:nth-child(even){
+		background-color:#FFF;
+	}
+
+.k-content{ box-shadow:2px 2px 25px #999;}
+#corpo{ width:100%; margin:10px; min-height:600px; height:auto;}
+
+.destacar_linha{ background:#093;}
+
+.jquery-waiting-base-container {
+   position: absolute;
+   left: 0px;
+   top:0px;
+   margin:0px;
+   width: 100%;
+   height: 100%;
+   display:block;
+   z-index: 9999997;
+   opacity: 1;
+   -moz-opacity: 1;
+   filter: alpha(opacity = 65);
+   background: black;
+   background-image: url(../../img/ajax-loader.gif);
+   background-repeat: no-repeat;
+   background-position:50% 40%;
+   text-align: center;
+   overflow: hidden;
+   font-weight: bold;
+   color: white;
+   padding-top: 25%;
+}
+
+
+
+div#footer {
+    position:fixed;
+    left:0px;
+    bottom:0px;
+    height:26px;
+line-height:26px;
+    width:100% !important;
+    z-index:999999;
+	
+}
+.footer {
+    position:fixed;
+    left:0px;
+    bottom:0px;
+    height:26px;
+	line-height:26px;
+    width:100%;
+    z-index:999999;
+	
+}
+ 
+/* IE 6 */
+* html #footer {
+    position:absolute;
+    top:expression((0-(footer.offsetHeight)+(document.documentElement.clientHeight ? document.documentElement.clientHeight : document.body.clientHeight)+(ignoreMe = document.documentElement.scrollTop ? document.documentElement.scrollTop : document.body.scrollTop))+'px');
+}

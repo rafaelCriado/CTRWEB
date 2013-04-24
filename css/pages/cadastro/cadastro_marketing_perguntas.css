@@ -1,0 +1,11 @@
+div#cadastro_marketing_perguntas{ padding:0px; margin:0px; }
+div#CMP_principal{ height:100%; width:100%; margin:0px; padding:0px; background:#EFEFEF}
+
+div#CMP_left{ height:100%; width:39%; background:#E2F0F6; border-right:1px solid #94C0D2; text-align:right;}
+div#CMP_right{ height:100%; width:60%}
+
+.left{ float:left}
+.right{ float:right}
+
+table.CMP_tb_lista{ width:100%}
+.title{ line-height:25px; color:#333; padding:0 5px; border:1px solid #94C0D2;}

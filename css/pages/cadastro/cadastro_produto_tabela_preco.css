@@ -1,0 +1,15 @@
+.empresa_produto_nome{ color:#888}
+.resposta_entidade_pessoa{ text-align:right; width: inherit;}
+.retorno_produto_grupo{ border:0px solid red; height:20px; width:100%; display:block; margin-top:10px; text-align:right;}
+.retorno_produto_subgrupo{ border:0px solid red; height:20px; width:100%; display:block; margin-top:10px; text-align:right;}
+
+
+
+
+input[type='button']{float:right; margin:2px 0px 0 5px }
+#tabstrip_produto_grupo_sub{ height:99%; width:100%; margin-top:0px}
+#form_produto{ height:100%}
+#form_produto_grupo{ height:180px; border:1px solid red;}
+#produto_pesquisa_aba_dois_table{ width:100%; max-height:180px; overflow:auto; }
+
+.fieldset{ height:220px;}

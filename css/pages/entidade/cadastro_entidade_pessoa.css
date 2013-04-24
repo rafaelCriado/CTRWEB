@@ -1,0 +1,21 @@
+#tabstrip{ margin-top:0px;}
+.fieldset_cliente_ativo{width:150px; float:right;}
+.entidade_bt_inferior{ float:right; margin-top:5px;}
+
+
+.entidade_categoria_codigo{ float:left; width:100%; border:1px solid #ccc;}
+.entidade_ativo{ float:right; margin-right:15px;}
+.span_left{ float:left;}
+fieldset{ background:#E4E4E4;}
+
+.entidade_bt_inferior span{ visibility:hidden; }
+
+div#marketing_pessoa{ height:100%; width:100%; background:url(../../../modulos/riolax/pedido/orcamento/IMG/riolax.png) no-repeat right center}
+
+.marketing_abrir{ diplay: block;}
+.marketing_fechar{ display: none;}
+
+#cp_marketing_pessoa{ background:#0054AA; height:150px; width:350px; line-height:50px; color:#FFF; font-weight:bold; font-family:Arial, Helvetica, sans-serif; font-size:16px; padding:20px;}
+
+#cp_marketing_pessoa select{ height:40px; width:220px; font-family:Arial, Helvetica, sans-serif; font-size:18px;}
+#cp_marketing_pessoa input{ padding:10px 20px; font-family:Arial, Helvetica, sans-serif; font-size:16px; }

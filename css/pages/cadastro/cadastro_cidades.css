@@ -1,0 +1,4 @@
+#cadastro_cidade{ padding:0px; overflow:auto; }
+#input_nova_cidade{ color:#444; font-family:Arial, Helvetica, sans-serif; text-align:right; float:left; padding:0 1% 0 0; height:99%; background:#E2F0F6; border-right:1px solid #94C0D2; width:20%; }
+#tabela_cidade{ float:left; padding:0px; width:78%; margin:0px; text-align:left; height:inherit; overflow:auto;}
+.title{ line-height:25px; color:#333; padding:0 5px; border:1px solid #94C0D2;}

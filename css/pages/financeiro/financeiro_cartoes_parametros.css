@@ -1,0 +1,10 @@
+#financeiro_cartoes_parametros{ padding:0px; margin:0px;}
+div#cc_esquerda{ height:100%; width:40%; float:left; border-right:1px solid #94C0D2}
+div#cc_direita{ height:100%; width:59%; float:left; background:#FFF;}
+#campo_cc{ float:left; margin:5px;}
+
+#cc_form_sup{ height:85%;}
+#cc_form_inf{ height:15%;}
+
+#botoes_cc input { padding:5px 15px;}
+.tr_selecionada{ background:#09C; color:#fff;} 

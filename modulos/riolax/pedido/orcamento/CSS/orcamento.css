@@ -1,0 +1,21 @@
+/* CSS PEDIDO -> ORÇAMENTO ==========================================================================
+		autor: Rafael Marques Criado
+		data : 16/01/2013
+   alterações: 	
+   ==========================================================================================================*/
+#po_aba{
+	height:456px;
+}#po_aba_dois{
+	height:456px;
+}#po_aba_tres{
+	height:456px;
+	
+}
+#po_aba_quatro{
+	height:456px; 
+	
+}
+span.span_orc_clientes{ margin-left:50px}
+
+	table.table_opcional{ width:500px; border:0px solid blue}
+

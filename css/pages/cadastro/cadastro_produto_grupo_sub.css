@@ -1,0 +1,37 @@
+div#cadastro_produto_tabela_preco{ margin:0px; padding:0px;}
+.empresa_produto_nome{ color:#888}
+.resposta_entidade_pessoa{ text-align:right; width: inherit;}
+.retorno_produto_grupo{ border:0px solid red; height:20px; width:100%; display:block; margin-top:10px; text-align:right;}
+.retorno_produto_subgrupo{ border:0px solid red; height:20px; width:100%; display:block; margin-top:10px; text-align:right;}
+
+
+
+
+input[type='button']{float:right; margin:2px 0px 0 5px }
+#tabstrip_produto_grupo_sub{ height:99%; width:100%; margin-top:0px}
+#form_produto{ height:100%}
+#form_produto_grupo{ height:180px; border:1px solid red;}
+#produto_pesquisa_aba_dois_table{ width:100%; max-height:180px; overflow:auto; }
+
+.fieldset{ height:220px; }
+#tabela_preco_lista{ float:left; height:235px; overflow:auto; width:57%; border:0px solid red;}
+#tabela_preco_lista table { width:100%}
+
+
+#tabela_preco_form_nova{ float:left}
+
+div[id^="tabstrip_tabela_preco"]{ margin:0px; padding:0px;}
+#tabela_preco_nova {
+height: 235px;
+width: 100%;
+margin-left: -10px;
+padding: 0;
+}
+#tabela_preco_incluir_produto{ height:235px;}
+#tabela_preco_form_nova{ text-align:right; width:42%; background:#daecf4; margin:0px; padding:0px}
+
+
+#incluir_preco_tabela{ width:200px; margin:0; padding:0px; height:235px; float:left; text-align:right; padding-right:5px;}
+
+#incluir_preco_tabela fieldset{ text-align:left}
+.title{ line-height:25px; color:#333; padding:0 5px; border:1px solid #94C0D2;}
