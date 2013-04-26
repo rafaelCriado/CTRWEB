@@ -1,5 +1,5 @@
 <?php
-
+	//Includes
 	include('php/classes/session.class.php');
 	//Inicia Sessão
 	$sessao = new Session();
