@@ -5,7 +5,7 @@
    ==========================================================================================================*/
 $(document).ready(function(e) {
 
-	//CRIA AS ABAS ++++++++++++++++++++++++++++++++++++++++
+	//CRIA AS ABAS ++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
 	$("#tabstrip_pedido_orcamento").kendoTabStrip({
 		animation:	{
 			open: {
@@ -15,8 +15,193 @@ $(document).ready(function(e) {
 		}
 	
 	});
-	// ++++++++++++++++++++++++++++++++++++++++++++++++++++
+	// ++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+        
+       
+       
+       
+       
+       
+       
+       
+       
+       
+       
+       
+       
+       
+       
+        
+	// ********************************* ABA INICIO ***********************************
+		
+		
+		// CAMPO DATA (PREENCHER COM DATA ATUAL) ======================================
+			var preenche_data_atual = function(campo){
+				
+				var input = $(campo);
+				
+				var data = new Date();
+				var dia  = data.getDate();
+				var mes	 = data.getMonth()+1;
+				var ano  = data.getFullYear();
+				
+				if(input.val() == ''){
+					input.val(dia+'/'+mes+'/'+ano);
+				}
+			}
+			preenche_data_atual('input[name="po_data"]');
+		// ============================================================================
+		
+		
+		// CAMPO CLIENTE (CHAMA TELA PARA REQUISITAR CLIENTE) =========================
+			var requisitaClienteFocus = function(campo){
+				$(campo).focus(function(){ 
+					
+					//Variavel que armazena o cliente
+					var codigo_cliente = $('input[name="po_codigo_cliente"]').val();
+					
+					//Caso cliente esteja vazio faça
+					if(codigo_cliente == 0){
+						
+						//Chama a tela de pesquisa de clientes.
+						$('a[name="cadastro_entidade_pesquisa_pessoa"]').click();
+						
+						//Preenche campo necessário para retornar os dados solicitados
+						var id = setInterval(function(){
+							//pedido_orcamento|CODIGO:po_codigo_cliente,NOME:po_name
+							if($('input[name="tipo_pesquisa_tela_retorno"]').val() != 'pedido_orcamento|CODIGO:po_codigo_cliente,NOME:po_name'){
+							
+								$('input[name="tipo_pesquisa_tela_retorno"]').val('pedido_orcamento|CODIGO:po_codigo_cliente,NOME:po_name');
+								
+							}else{
+								//Assim que preenchido para o intervalo
+								clearInterval(id);
+							}
+							
+						},1000);
+							
+					}
+				});
+			}
+			requisitaClienteFocus('input[name="po_name"]');
+		// ============================================================================
+		
+		
+		// BOTÃO NOVO CLIENTE (CHAMA TELA PARA CADASTRAR UM NOVO CLIENTE) =============
+			var novo_cliente = function(botao){
+				
+				//Ao clicar
+				$(botao).click(function(e){
+					e.preventDefault();
+					
+					//Chama a tela
+					$('a[name="cadastro_entidade_pessoa"]').click();
+					
+					setTimeout(
+						function(){
+							//Aciona o evento para criar novo cliente
+							$('a[name="bt_entidade_nova"]').click();
+						},
+						1000
+					);
+				});
+				
+			}
+			novo_cliente('a[name="bt_orc_novo_cliente"]');
+		// ============================================================================
+		
+		
+		// BOTÃO PESQUISAR (CHAMA TELA PARA REQUISITAR CLIENTE) =======================
+			var requisitaClienteClick = function(botao){
+				
+				//Ao Clicar
+				$(campo).click(function(e){
+					e.preventDefault()
+					
+					//Chama a tela de pesquisa de cliente
+					$('a[name="cadastro_entidade_pesquisa_pessoa"]').click();
+						
+					var id = setInterval(function(){
+							//pedido_orcamento|CODIGO:po_codigo_cliente,NOME:po_name
+							if($('input[name="tipo_pesquisa_tela_retorno"]').val() != 'pedido_orcamento|CODIGO:po_codigo_cliente,NOME:po_name'){
+							
+								$('input[name="tipo_pesquisa_tela_retorno"]').val('pedido_orcamento|CODIGO:po_codigo_cliente,NOME:po_name');
+								
+							}else{
+								//Assim que preenchido para o intervalo
+								clearInterval(id);
+							}
+							
+						},
+						1000
+					);
+				});
+			}
+			requisitaClienteClick('a[name="bt_orc_pesquisar_cliente"]');
+		// ============================================================================
+		
+		
+		// VERIFICAR SEM CAMPO CLIENTE ESTA VAZIO =====================================
+			$('input[name="po_name"]').live('change',function(){
+				$('#tabstrip_pedido_orcamento ul li:eq(2)').click();
+			});
+		// ============================================================================
+		
+		
+		// BOTÃO INICIAL (CONTINUAR) ==================================================
+			var bt_iniciar = function(botao){
+				
+				//Ao clicar
+				$(botao).click(function(){
+					
+					
+					//Verifica se o nome esta vazio
+					if($('input[name="po_name"]').val() == ''){
+						
+						$('input[name="po_codigo_cliente"]').val('0');
+						$('input[name="po_name"]').val('');
+						alert('Cliente não foi escolhido');
+						
+					}else if($('input[po_codigo_cliente]').val() == 0){ //senão verifica se codigo exite
+						
+						$('input[name="po_name"]').val('');
+						alert('Cliente não localizado!');
+						
+					}else if($('input[name="po_data"]').val() == ''){ // verifica se a data existe
+						
+						alert('Escreva uma data!');
+						
+					}else{
+						
+						//Vai para a segunda aba
+						$('#tabstrip_pedido_orcamento ul li:eq(1)').click();
 	
+					}
+					
+				});
+			}
+			bt_iniciar('input[name="po_continuar"]');
+		// ============================================================================
+		
+		
+	// ********************************************************************************
+        
+       
+       
+       
+       
+       
+       
+       
+       
+       
+       
+       
+       
+       
+       
+    
+	    
 	function produto(variavel){
 		var retorno = variavel.split('_');
 		return retorno[1];
@@ -87,118 +272,6 @@ $(document).ready(function(e) {
 		$('div#tabstrip_pedido_orcamento ul li:eq(2)').click();	
 	});	
 	
-	// ********************************* ABA INICIO ***********************************
-		
-		
-		
-		
-		
-		// PREENCHER COM DATA ATUAL (INPUT DATA)=================
-		var preenche_data_atual = function(campo){
-			
-			var input = $(campo);
-			
-			var data = new Date();
-			var dia  = data.getDate();
-			var mes	 = data.getMonth()+1;
-			var ano  = data.getFullYear();
-			
-			if(input.val() == ''){
-				input.val(dia+'/'+mes+'/'+ano);
-			}
-		}
-		preenche_data_atual('input[name="po_data"]');
-		// ======================================================
-		
-		
-		// BUSCA CLIENTE (INPUT NOME) ===========================
-		
-			$('input[name="po_name"]').focus(function(){ 
-				
-				var codigo_cliente = $('input[name="po_codigo_cliente"]').val();
-				
-				if(codigo_cliente == 0){
-					$('a[name="cadastro_entidade_pesquisa_pessoa"]').click();
-					var id = setInterval(function(){
-						//pedido_orcamento|CODIGO:po_codigo_cliente,NOME:po_name
-						if($('input[name="tipo_pesquisa_tela_retorno"]').val() != 'pedido_orcamento|CODIGO:po_codigo_cliente,NOME:po_name'){
-						
-							$('input[name="tipo_pesquisa_tela_retorno"]').val('pedido_orcamento|CODIGO:po_codigo_cliente,NOME:po_name');
-							
-						}else{
-							clearInterval(id);
-						}
-					},1000);
-						
-				}
-			});
-		
-		// ======================================================
-		
-		
-		// Botão novo cliente ====================================
-			$('a[name="bt_orc_novo_cliente"]').live("click",function(e){
-				e.preventDefault();
-				$('a[name="cadastro_entidade_pessoa"]').click();
-				setTimeout(
-					function(){
-						$('a[name="bt_entidade_nova"]').click();
-					}
-					,1000);
-			});
-		
-		// =======================================================
-		
-		
-		// Botão pesquisar =======================================
-			$('a[name="bt_orc_pesquisar_cliente"]').live("click",function(e){
-				e.preventDefault()
-				$('a[name="cadastro_entidade_pesquisa_pessoa"]').click();
-					setTimeout(function(){
-						$('input[name="tipo_pesquisa_tela_retorno"]').val('pedido_orcamento|CODIGO:po_codigo_cliente,NOME:po_name')}
-						,2000);
-			});
-		// =======================================================
-		
-		
-		
-		// VERIFICAR SEM CAMPO CLIENTE ESTA VAZIO================
-		
-			$('input[name="po_name"]').live('change',function(){
-				$('#tabstrip_pedido_orcamento ul li:eq(2)').click();
-			});
-		
-		// ======================================================
-		
-		// EVENTO BOTÃO =========================================
-			$('input[name="po_continuar"]').click(function(){
-				if($('input[name="po_name"]').val() == ''){
-					
-					$('input[name="po_codigo_cliente"]').val('0');
-					$('input[name="po_name"]').val('');
-					alert('Cliente não foi escolhido');
-					
-				}else if($('input[po_codigo_cliente]').val() == 0){
-					
-					alert('Cliente não localizado!');
-					$('input[name="po_name"]').val('');
-					
-				}else if($('input[name="po_data"]').val() == ''){
-					
-					alert('Escreva uma data!');
-					
-				}else{
-
-					$('#tabstrip_pedido_orcamento ul li:eq(1)').click();
-
-				}
-				
-			})
-		// ======================================================
-		
-		
-		
-	// ********************************************************************************
 	
 	
 	// CLICAR AO GRUPO =============================================
