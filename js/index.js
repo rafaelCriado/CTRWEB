@@ -224,6 +224,8 @@ $(document).ready(function() {
 		
 		criarJanelaZoom("pedido_pedidos_enviar",520,860);
 		criarJanelaZoom("pedido_pedidos_enviados",520,860);
+		criarJanela("pedido_relatorios",500,500);
+		criarJanela("pedido_relatorio2",400,600);
 		
 	// =================================================================================================
 

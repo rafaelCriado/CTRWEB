@@ -1,0 +1,30 @@
+div#PedRel2_top{
+	width:100%; height:90%; border:0px solid #000;	
+}
+
+	/*ESTILIZAÇÃO ESQUERDA*/
+	div#PedRel2_left{
+		float:left; background:#fff; width:40%; height:100%;
+	}
+	
+	div#PedRel2_left:hover{
+		float:left; background:#fff; width:40%; height:100%;
+	}
+	
+	div#PedRel2_right{
+		float:right; width:60%; height:100%; background:#fff;
+	}
+	
+div#PedRel2_botton{
+	height:10%; width:100%; background:#fff;
+}
+
+
+/*ESTILIZAÇÃO ESQUERDA*/
+div#pedido_relatorio2{
+	margin:0; padding:0;	
+}
+
+input#PedRel2_bt_enviar{
+	margin-top:7px; margin-right:10px;
+}

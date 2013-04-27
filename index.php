@@ -161,6 +161,8 @@
                 <!-- MENU PEDIDOS ============================================================= -->
                 	<div id="pedido_pedidos_enviar">						</div>
                     <div id="pedido_pedidos_enviados">						</div>
+                    <div id="pedido_relatorios">							</div>
+                    <div id="pedido_relatorio2">							</div>
                 <!-- ========================================================================== -->
                 
                 

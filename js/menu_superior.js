@@ -638,3 +638,51 @@
 	});
 // ************************************************************
 
+
+// CARREGA TELA DE RELATÓRIOS MENU PEDIDO **********************
+	$('a[name="pedido_relatorios"]').live("click", function(e){
+		
+		e.preventDefault();
+		$.ajax({
+			   url: 'pedido_relatorios.php', 
+		  dataType: 'html',
+		beforeSend: function(){
+						$('#pedido_relatorios').html(
+								'<img src="img/carregando.gif" alt="Aguarde">');
+					},
+		   success: function(data) {
+						$('#pedido_relatorios').html(data);
+					 },
+			 error: function(xhr,er) {
+						$('#pedido_relatorios').html(
+								'<p class="destaque">Error ' + xhr.status + ' - ' + xhr.statusText + 
+								'<br />Tipo de erro: ' + er +'</p>')	
+					}		
+		});	
+	});
+// ************************************************************
+
+// CARREGA TELA DE RELATÓRIOS 2 MENU PEDIDO **********************
+	$('a[name="pedido_relatorio2"]').live("click", function(e){
+		
+		e.preventDefault();
+		$.ajax({
+			   url: 'pedido_relatorio2.php', 
+		  dataType: 'html',
+		beforeSend: function(){
+						$('#pedido_relatorio2').html(
+								'<img src="img/carregando.gif" alt="Aguarde">');
+					},
+		   success: function(data) {
+						$('#pedido_relatorio2').html(data);
+					 },
+			 error: function(xhr,er) {
+						$('#pedido_relatorio2').html(
+								'<p class="destaque">Error ' + xhr.status + ' - ' + xhr.statusText + 
+								'<br />Tipo de erro: ' + er +'</p>')	
+					}		
+		});	
+	});
+// ************************************************************
+
+

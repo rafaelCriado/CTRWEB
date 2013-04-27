@@ -208,8 +208,10 @@
         <li>
         	Pedido
         	<ul>
-            	<li><a href="#" id="337" name="pedido_pedidos_enviar" title="Pedidos a Enviar" >Pedidos a enviar</a></li>                
+            	<li><a href="#" id="337" name="pedido_pedidos_enviar" 	title="Pedidos a Enviar" >Pedidos a enviar</a></li>                
             	<li><a href="#" id="338" name="pedido_pedidos_enviados" title="Pedidos Enviados" >Pedidos enviados</a></li>                
+                <li><a href="#" id="357" name="pedido_relatorios"		title="Relatórios"		 >Relatórios	  </a></li>
+                <li><a href="#" id="358" name="pedido_relatorio2"       title="Relatorios_2"	 >Relatorios 2    </a></li>
             </ul>
         </li>
         <!-- Fim Menu Orçamentos -->
