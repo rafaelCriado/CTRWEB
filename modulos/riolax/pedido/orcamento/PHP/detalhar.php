@@ -9,11 +9,16 @@
 		
 		
 		
+		$cliente 			= !empty($_POST['cliente'])				?$_POST['cliente']				:0;
+		$prazo	 			= !empty($_POST['prazo_entrega'])		?$_POST['prazo_entrega']		:0;
+		$previsao 			= !empty($_POST['previsao'])			?$_POST['previsao']				:0;
+		$data_final			= !empty($_POST['data_final'])			?$_POST['data_final']			:0;
 		$condicao_pagamento = !empty($_POST['condicao_pagamento'])	?$_POST['condicao_pagamento']	:0;
 		$adicional 			= !empty($_POST['adicional'])			?$_POST['adicional']			:0;
-		$desconto 			= !empty($_POST['desconto'])			?(float)$_POST['desconto']				:0;
+		$desconto 			= !empty($_POST['desconto'])			?(float)$_POST['desconto']		:0;
 		$frete	 			= !empty($_POST['frete'])				?$_POST['frete']				:0;
 		$total	 			= !empty($_POST['total'])				?$_POST['total']				:0;
+		$t = $total;
 		$infos 				= '';
 		
 		$sql_condicao = 'SELECT CP.CONPAGCOD       AS CODIGO,
@@ -70,13 +75,36 @@
 			$total -= ($desconto*$total)/100;
 			
 			
+			//Cria variavel de sessão com as variaveis do cabeçalho
+			$header = $sessao->getNode('ORCAMENTO');
+
+			$header['CLIENTE'] 	 	 = $cliente;
+			$header['PREVISAO']	 	 = $previsao;
+			$header['DATA_FINAL']	 = $data_final;
+			$header['PRAZO']	 	 = $prazo;
+			$header['FRETE']	 	 = $frete;
+			$header['ADICIONAL'] 	 = $adicional;
+			$header['DESCONTO']	 	 = $desconto;
+			$header['CONDICAO_PGTO'] = $condicao_pagamento; 
+			$header['TOTAL'] 		 = $t; 
 			
+			$sessao->addNode('ORCAMENTO',$header);
+			
+			// ====================================================
 			
 		}else{
 			
 		}
 	
 	}
+	
+	// Criar sessao da forma de pagamento
+	$forma_pagamento[0]['CODIGO'] = 0;
+	$forma_pagamento[0]['FORMA']  = "";
+	$forma_pagamento[0]['VALOR']  = 0;
+	$sessao->addNode('FORMA_PAGAMENTO', $forma_pagamento);
+	// ====================================================
+	
 ?>
 <div style="height:100%">
 	<form>
@@ -109,6 +137,7 @@
             &nbsp;&nbsp;&nbsp;
             Forma de Pagamento : 
             <select name="orc_forma_pagamento">
+            	<option value="0"></option>
             	<?php
 					//Forma de Pagamento
 					$sql_forma_pagamento = 'SELECT FORPAGNUM AS CODIGO, FORPAGDES AS NOME FROM FORMAS_PAGAMENTO WHERE EMPCOD = '.$sessao->getNode('empresa_acessada');
@@ -126,8 +155,7 @@
             <input name="orc_forma_pagamento_teste" type="hidden" value=""/>
             <script>
 				$('select[name="orc_forma_pagamento"]').val(<?php echo $formaPagamento; ?>);
-				$('input[name="orc_forma_pagamento"]').val(<?php echo $formaPagamento; ?>);
-
+				$('input[name="orc_forma_pagamento"]') .val(<?php echo $formaPagamento; ?>);
             </script>
             
             
@@ -260,6 +288,37 @@
 
 </div>
 <script>
+	//MODAL =======================================
+		//Oculta formulário de formas de pagamento
+		$('#modal_fpgto').hide();
+		
+		
+		
+		//Evento para fechar janela modal
+		var fechaModal = function(){
+			
+			$('a[name="fechar_modal_fpgto"]').click(function(e){
+				e.preventDefault();
+				$("#modal_fpgto").hide();
+			});
+			
+		}
+		
+		//Cria janela modal =================
+		var criaBox = function(div,conteudo){
+			fechaModal();
+			
+			
+			
+			$('#div_modal_fpgto').html(conteudo);
+			
+			$(div).addClass('modal_fp');
+			$(div).show();
+			
+		}
+	// ============================================
+
+
 	var bt_voltar_cp_orc = function(){
 		$('input[name="orc_cp_bt_voltar"]').click(function(){
 			$('#orcamento_tela_finalizar').css({display:'block'})
@@ -267,6 +326,44 @@
 		});
 	}
 	bt_voltar_cp_orc();
+	
+	
+	//Evento selecionar forma de pagamento.
+	var formasPagamento = function(){
+		var forma = $('select[name="orc_forma_pagamento"]');
+		
+		
+		
+		
+		forma.change(function(){
+			criaBox('#modal_fpgto',request_conteudo('to testando'));
+		});
+		stop();
+	}
+	formasPagamento();
+
+
+	//Preenche modal
+	var request_conteudo = function(formaPagamento){
+		
+		//Recebe o codigo da forma de pagamento
+		$.ajax({
+			url			: 	'modulos/riolax/pedido/orcamento/PHP/formas_pagamento.php', 
+			dataType	: 	'html',
+			data		: 	{	"codigo"	: formaPagamento	},
+			type		: 	'GET',
+			success		: 	function() {
+								return data;
+							},
+			error		: 	function() {
+								alert('Erro de requisição');	
+							}		
+		});
+		
+	}
+	
+	
+	
 	
 	
 	
@@ -590,3 +687,16 @@
 		
 		
 </script>
+
+<style>
+	.modal_fp{position:fixed; top:50px; left:100px; background:#eee; z-index:9999999999999999999; height:350px; width:400px; border:1px solid #94C0D2; }
+</style>
+<div id="modal_fpgto">
+    <div style=" line-height:20px; height:20px; background:#daecf4; border:1px solid #cbe6ef;">
+        &nbsp;Forma de Pagamento
+        <a name="fechar_modal_fpgto" type="button" href="#" class="k-icon k-i-close close">X</a>
+    </div>
+    <div id="div_modal_fpgto">
+        
+    </div>
+</div>

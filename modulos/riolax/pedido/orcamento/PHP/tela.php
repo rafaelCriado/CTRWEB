@@ -20,7 +20,7 @@
 		a[name="bt_orc_pesquisar_cliente"]:visited{ color:#fff; text-decoration:none; border:0px;}
 		
 		div#orc_quadroAzul{ height:auto; width:260px; background:#0054AA; float:right; margin:20px 35px 0 0; border-radius:10px; padding:15px; color:#FFF; font-size:12px; }
-		div[id^='po_aba'] { background: url(modulos/riolax/pedido/orcamento/IMG/riolax.png) no-repeat bottom right;}
+		div#po_aba { background: url(modulos/riolax/pedido/orcamento/IMG/riolax.png) no-repeat bottom right;}
 		div#po_aba_quatro { height:453px; overflow:auto;}
 		
     </style>

@@ -50,7 +50,7 @@
 	$caracteristica = oci_fetch_object($query_categoria);
 	
 	//var_dump($_SESSION);
-	
+	RAFA
 	//Finalizar orçamento
 	
 	
@@ -192,11 +192,11 @@
 				
 				
 		  //=====================================================
+		   $header['ITENS'][0] = $info_produto->CODIGO;
 		   
 		   
 		   
-		   
-		   
+		   //var_dump($_SESSION);
 		?>
         
         
@@ -302,6 +302,9 @@
 						
 						$total_item += calculo_juros($kit->VALOR,$start->INDICE);
 						
+						
+						
+						$header['ITENS'][$y] = $kit->CODIGO;
 						?>
                         
                         <tr>
@@ -317,6 +320,8 @@
 					$total1 = $preco_venda + $total_item;
 					
 				}
+				
+				$sessao->addNode('ORCAMENTO',$header);
 			?>
             
        </table>
@@ -356,8 +361,8 @@
   <style>
   	#orcamento_detalhar_parcelas{  display:none; }
   	#orcamento_filial_sem_atuacao{ display:none; }
-  .modal{ z-index:99999999999999; position:absolute; left:33%; top:33%; background:#FFF; height:240px; width:200px; border:1px solid #94C0D2}
-.close{ float:right;}
+  	.modal{ z-index:99999999999999; position:absolute; left:33%; top:33%; background:#FFF; height:240px; width:200px; border:1px solid #94C0D2}
+	.close{ float:right;}
   </style>  
     
     <div id="modal_obs_orc">
@@ -624,10 +629,14 @@
 									'modulos/riolax/pedido/orcamento/PHP/detalhar.php',
 									{
 										"condicao_pagamento": condicao_pagamento,
+										"cliente"			: cliente,
 										"adicional"			: adicional,
 										"desconto" 			: desconto,
 										"frete" 			: frete,
-										"total"				: total
+										"total"				: total,
+										"previsao"			: previsao,
+										"data_final"		: data_final,
+										"prazo_entrega"		: prazo_entrega
 									},
 									function(data){
 										$('#orcamento_detalhar_parcelas').html(data);
