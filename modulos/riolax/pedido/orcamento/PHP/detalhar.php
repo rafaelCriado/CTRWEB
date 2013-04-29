@@ -303,9 +303,9 @@
 		}
 		
 		//Cria janela modal =================
-		var criaBox = function(div,conteudo){
+		var criaBox = function(div){
 			fechaModal();
-			$('#div_modal_fpgto').html(conteudo);
+			request_conteudo(1);
 			
 			$(div).addClass('modal_fp');
 			$(div).show();
@@ -329,7 +329,7 @@
 		
 		forma.change(function(){
 			//Cria modal
-			criaBox('#modal_fpgto',request_conteudo('to testando'));
+			criaBox('#modal_fpgto');
 		});
 		stop();
 	}
@@ -345,8 +345,8 @@
 			dataType	: 	'html',
 			data		: 	{	"codigo"	: formaPagamento	},
 			type		: 	'GET',
-			success		: 	function() {
-								return data;
+			success		: 	function(data) {
+								$('#div_modal_fpgto').html(data);
 							},
 			error		: 	function() {
 								alert('Erro de requisição');	

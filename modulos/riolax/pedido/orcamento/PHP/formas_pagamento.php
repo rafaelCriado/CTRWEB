@@ -1,7 +1,17 @@
-﻿<style>
+﻿<?php 
+	//Banco
+	include '../../../../../php/classes/bd_oracle.class.php';
+	
+	//Sessão
+	include '../../../../../php/classes/session.class.php';
+	$sessao = new Session();
+?>
+
+
+<style>
 
 	.FormPagam{
-		height:350px; width:400px; border:1px solid #000; text-align:left;
+		height:330px; width:400px; border:0px solid #000; text-align:left; padding:10px;
 	}
 	
 	.FormPagam_select{
@@ -37,9 +47,9 @@
 			<?php 
                 $formaPagamento = isset($_GET['codigo'])?$_GET['codigo']:'';
                 
-                include '../../../../../php/classes/bd_oracle.class.php';
                 
-                $select = "SELECT FP.FORPAGNUM AS CODIGO ,FP.FORPAGDES AS FORM_PAGAMENTO FROM FORMAS_PAGAMENTO FP";
+                
+                $select = "SELECT FP.FORPAGNUM AS CODIGO ,FP.FORPAGDES AS FORM_PAGAMENTO FROM FORMAS_PAGAMENTO FP	WHERE FP.EMPCOD = ".$sessao->getNode('empresa_acessada');
                 
                 $query = oci_parse($conecta,$select);
                 
@@ -65,6 +75,8 @@
     <br> Restante: <input type="text" disabled name="FormPagam_resto" class="FormPagam_resto"/>
     
     <br> 
+    
+    
     <table>
     <tr>
     <td></td>
