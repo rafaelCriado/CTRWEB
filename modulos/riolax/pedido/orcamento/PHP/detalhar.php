@@ -292,8 +292,6 @@
 		//Oculta formulário de formas de pagamento
 		$('#modal_fpgto').hide();
 		
-		
-		
 		//Evento para fechar janela modal
 		var fechaModal = function(){
 			
@@ -307,9 +305,6 @@
 		//Cria janela modal =================
 		var criaBox = function(div,conteudo){
 			fechaModal();
-			
-			
-			
 			$('#div_modal_fpgto').html(conteudo);
 			
 			$(div).addClass('modal_fp');
@@ -332,10 +327,8 @@
 	var formasPagamento = function(){
 		var forma = $('select[name="orc_forma_pagamento"]');
 		
-		
-		
-		
 		forma.change(function(){
+			//Cria modal
 			criaBox('#modal_fpgto',request_conteudo('to testando'));
 		});
 		stop();
