@@ -31,7 +31,9 @@ $(document).ready(function() {
 		 
     $(function() {
         $(window)
+			.mouseenter(function(){ activePage = true;})
             .focus(function() { activePage = true; })
+			.focusin(function() { activePage = true; })
             .blur(function() { activePage = false; });
  
         showInformation();

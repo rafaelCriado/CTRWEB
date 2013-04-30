@@ -171,5 +171,33 @@
 					}
 
 
+	//Busca valor do orçamento =================
+	function getValArray($array,$opt){
+	
+		foreach($array as $campo => $valor){
+			if($campo == $opt){
+				return $valor;
+			}
+		}
+	}
+	// =========================================
+	
+	function contArray($array){
+		$contador = 0;
+		foreach($array as $campo => $valor){
+				$contador++;
+			
+		}
+		return $contador;
+	}
+	
+	function formata_numero($valor){
+		if(!empty($valor)){
+			return 'R$ '. number_format($valor,2,'.',',');
+		}
+		return 'R$ 0,00';
+	}
+	
+	
 
 ?>

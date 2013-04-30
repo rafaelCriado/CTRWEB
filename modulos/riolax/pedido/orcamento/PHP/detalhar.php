@@ -98,12 +98,7 @@
 	
 	}
 	
-	// Criar sessao da forma de pagamento
-	$forma_pagamento[0]['CODIGO'] = 0;
-	$forma_pagamento[0]['FORMA']  = "";
-	$forma_pagamento[0]['VALOR']  = 0;
-	$sessao->addNode('FORMA_PAGAMENTO', $forma_pagamento);
-	// ====================================================
+	$sessao->remNode('FORMA_PAGAMENTO');
 	
 ?>
 <div style="height:100%">
@@ -303,9 +298,9 @@
 		}
 		
 		//Cria janela modal =================
-		var criaBox = function(div){
+		var criaBox = function(div,valor){
 			fechaModal();
-			request_conteudo(1);
+			request_conteudo(valor);
 			
 			$(div).addClass('modal_fp');
 			$(div).show();
@@ -327,9 +322,11 @@
 	var formasPagamento = function(){
 		var forma = $('select[name="orc_forma_pagamento"]');
 		
+		
+		
 		forma.change(function(){
 			//Cria modal
-			criaBox('#modal_fpgto');
+			criaBox('#modal_fpgto', forma.val());
 		});
 		stop();
 	}
@@ -347,6 +344,7 @@
 			type		: 	'GET',
 			success		: 	function(data) {
 								$('#div_modal_fpgto').html(data);
+								$('input[name="FormPagam_valor"]').focus();
 							},
 			error		: 	function() {
 								alert('Erro de requisição');	

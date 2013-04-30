@@ -1,0 +1,1 @@
+exp ddw/sql@xe file='C:\Program Files (x86)\Apache Software Foundation\Apache2.2\htdocs\bd\base_ddw.dmp'  OWNER='DDW' rows=y  log='C:\Program Files (x86)\Apache Software Foundation\Apache2.2\htdocs\bd\base_ddw.log'
