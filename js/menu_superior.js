@@ -454,6 +454,29 @@
 	});
 // ************************************************************
 
+// CARREGA TELA DE CONTAS A RECEBER NO MENU FINANCEIRO **********************
+	$('a[name="contas_a_receber"]').live("click", function(e){
+		
+		e.preventDefault();
+		$.ajax({
+			   url: 'contas_a_receber.php', 
+		  dataType: 'html',
+		beforeSend: function(){
+						$('#contas_a_receber').html(
+								'<img src="img/carregando.gif" alt="Aguarde">');
+					},
+		   success: function(data) {
+						$('#contas_a_receber').html(data);
+					 },
+			 error: function(xhr,er) {
+						$('#contas_a_receber').html(
+								'<p class="destaque">Error ' + xhr.status + ' - ' + xhr.statusText + 
+								'<br />Tipo de erro: ' + er +'</p>')	
+					}		
+		});	
+	});
+// ************************************************************
+
 // CARREGA TELA DE CADASTRO DE PESQUISA FINANCEIRA ************
 	$('a[name="pesquisa_financeira"]').live("click", function(e){
 		
@@ -684,5 +707,4 @@
 		});	
 	});
 // ************************************************************
-
 

@@ -188,6 +188,7 @@
                     	<li><a href="#" id="297" name="financeiro_cartoes_parametros" title="Parametros de Transações com Cartão de Crédito" >Parametros das Transações</a></li>
                     </ul>
                 </li>
+                <li><a href="#"  id="360"  name="contas_a_receber" title="Contas a Receber" > Contas a Receber </a></li>
             </ul>
         </li>
         
