@@ -202,7 +202,7 @@
 										success		: 	function(data) {
 															$('#div_modal_fpgto').html(data);
 															$('select[name="FormPagam_select"]').focus();
-															
+															$('input[name="orc_val_restante"]').val($('input[name="fp_total"]').val());
 														},
 										error		: 	function() {
 															alert('Erro de requisição');	

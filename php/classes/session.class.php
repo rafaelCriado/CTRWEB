@@ -66,6 +66,11 @@ Class Session
 			return $_SESSION['node'][$key];
 		}
     }
+	
+	public function setArrayNode($variavel,$keyArray,$key,$value){
+		$_SESSION['node'][$variavel][$keyArray][$key] = $value;
+		return $this;
+	}
 
     public function remNode($key){
 		if(isset($_SESSION['node'][$key])){
