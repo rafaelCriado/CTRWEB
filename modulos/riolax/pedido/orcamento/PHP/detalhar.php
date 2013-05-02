@@ -106,7 +106,10 @@
     	<fieldset >
         	<legend><strong>Detalhes do Orçamento</strong></legend>
             <div>
-            Condição de Pagamento : <input type="text" disabled="disabled" value="<?php echo $condicao_pagamento_nome;?>" />
+            Condição de Pagamento : 
+            	<input type="text" disabled="disabled" value="<?php echo $condicao_pagamento_nome;?>" />
+                <input type="hidden" name="orc_detal_financeira_cond_pag" value="<?php echo $condicao_pagamento; ?>" />
+                <input type="hidden" name="orc_val_restante" value="" />
             <?php
 				//Informações de financeira
 				if(!empty($financeira_nome)){
@@ -615,12 +618,17 @@
 	
 	
 	//BOTÃO FINALIZAR ORÇAMENTO ================================================================
+	var bt_finalizar_orcamento = function(){
 		$('input[name="bt_finalizar_orcamento"]').click(function(e){
 			 var cliente 				= $('input[name="orc_cliente"]').val();
 			 var usuario 				= $('input[name="orc_usuario"]').val();;
 			 var data_final				= $('input[name="orc_data_final"]').val();
-			 var prazo_entrega			= $('input[name="orc_prazo_entrega"]').val();  	
-
+			 var prazo_entrega			= $('input[name="orc_prazo_entrega"]').val();
+			 var condicao_pagamento		= $('input[name="orc_detal_financeira_cond_pag"]').val();  	
+		     var prazo_entrega			= $('input[name="orc_prazo_entrega"]').val();  	 
+		     var valor_restante 			= $('input[name="orc_val_restante"]').val();
+			 
+			
 			 var addFreteFinanc     	= 0;
 			 var addAdicionalFinanc 	= 0;
 			 var forma_pagamento  		= $('select[name="orc_forma_pagamento"]').val();
@@ -648,8 +656,37 @@
 					 else{
 						 if(prazo_entrega == ''){ alert('Defina um prazo de entrega');}
 						 else{
-							
-							verifica_area(cliente);							 
+							//Caso condição de pagamento for 0 é que pagamento será a vista
+							//então o valor restante deve ser 0 para poder continuar.
+							if(condicao_pagamento == 0){
+								
+								if(forma_pagamento == 0){
+									
+									alert('Escolha uma forma de pagamento!');
+									
+								}else{
+									
+									
+									//Verifica valor restante.
+									
+									
+									if(valor_restante == 0){
+										
+										verifica_area(cliente);	
+										
+									}else{
+										
+										
+										alert('O Valor restante tem que ser 0!');
+										
+									}
+									
+								}
+							}else{
+								
+								verifica_area(cliente);								
+														 
+							}
 							
 						 }
 					 }
@@ -658,6 +695,8 @@
 			 
 			 
 		});
+	}
+	bt_finalizar_orcamento();
 		// =========================================================================================
 		
 		var outra_filial = function(){
