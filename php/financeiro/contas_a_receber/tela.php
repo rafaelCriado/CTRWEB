@@ -23,54 +23,11 @@
 ?>
 
 <!-------------------- CHAMADA DO ESTILO E DO jAVASCRIPT--------------------->
-<link rel="stylesheet" href="../../../css/pages/financeiro/contas_a_receber.css" />
+<link rel="stylesheet" href="css/pages/financeiro/financeiro_contas_a_receber.css" />
 
-<script type="text/javascript" src="../../../js/pages/financeiro/contas_a_receber.js" >	</script>
+<script type="text/javascript" src="js/pages/financeiro/financeiro_contas_a_receber.js" >	</script>
 
 <!------------------------------------------------------------------------------>
-
-<style>
-
-	div#contas_a_receber{
-		padding:0 0 0 0;	
-	}
-	.Fundo_total{
-		width:100%; height:100%; background:#E4E4E4; margin:auto;
-	}
-	.Filtros_top{
-		width:100%;text-align:left;
-	}
-	Filtros_top_form{
-		margin:5px 5px 5px 5px;	
-	}
-	#ConRec_descricao{
-		width:400px;	
-	}
-	#ConRec_select_campo{
-		width:250px;
-	}
-	select[name^='ConRec_select_data']{
-		width:100px;	
-	}
-	.Contas{
-		height:60%; width:99%; overflow:auto; border:1px solid #000; margin:auto; margin-top:2px;
-	}
-	.Func_botton1, .Func_botton3{
-		width:100%; height:5%; margin-top:1px; float:left;
-	}
-	.Func_botton2{
-		width:100%; height:10%; margin-top:2px; float:left;	
-	}
-	#ConRec_quantidade, #ConRec_ttselecionado{
-		width:60px;	
-	}
-	input[id^='ConRec_bt']{
-		float:left; padding:5px 5px 5px 5px; margin-right:10px;
-	}
-	#ConRec_bt_baixar{
-		float:right;	
-	}
-</style>
 
 <!--------DIV PARA COR E TAMANHO DO FUNDO----------->
 <div class="Fundo_total">
@@ -79,26 +36,30 @@
         <div class="Filtros_top">
         
             <fieldset>
-                <legend><strong> Filtros </strong></legend>
-                    Descrição: 
-                    <input type="text" name="ConRec_descricao" id="ConRec_descricao"/>
-                    Campo: 
+                <legend> <strong> Filtros </strong> </legend>
+                    <span  class="ConRec_lb_descricao"> Descrição: </span>
+                    <input type="text" name="ConRec_descricao" id="ConRec_descricao" placeholder="Coloque uma descrição."/>
+                    
+                    <span   class="ConRec_lb_campo"> Campo: </span>
                     <select name="ConRec_select_campo" id="ConRec_select_campo">
-						<?php    ?>
+                        <option> Selecione </option>
+                            <?php    ?>
                     </select> <br />    
-                    Data:
+                    
+                    <span   class="ConRec_lb_data"> Data: </span>
                     <select name="ConRec_select_data">
-                        <option></option>
+                        <option value="venc"> Vencimento</option>
+                        <option value="venc"> Entrada</option>
+                        <option value="venc"> Recebimento</option>
                     </select>
-                    De:
-                    <select name="ConRec_select_data.ini">
-                        <option></option>
-                    </select>
-                    Até:
-                    <select name="ConRec_select_data.fin">
-                        <option></option>
-                    </select>
-                    Empresa:
+                    
+                    <span   class="ConRec_lb_data_ini"> De: </span>
+                    <input  type="text" name="ConRec_data_ini" placeholder="00/00/0000"/>
+                    
+                    <span   class="ConRec_lb_data_fin"> Até: </span>
+                    <input  type="text" name="ConRec_data_fin" placeholder="00/00/0000">
+                    
+                    <span  class="ConRec_lb_empresa"> Empresa: </span>
                     <input type="text" name="ConRec_empresa" id="ConRec_empresa" disabled="disabled" value="<?php   ?>" />
             </fieldset>
             
@@ -115,13 +76,18 @@
         <!----FORMULARIO INFERIOR1----->
         <div class="Func_botton1">
         
-       	  <input type="button" name="ConRec_bt_desconto" id="ConRec_bt_desconto" value="Desconto" />
+       	  <input type="button" name="ConRec_bt_desconto"  id="ConRec_bt_desconto"  value="Desconto" />
        	  <input type="button" name="ConRec_bt_lanCheque" id="ConRec_bt_lanCheque" value="Lançamento Cheque" />
        	  <input type="button" name="ConRec_bt_recCheque" id="ConRec_bt_recCheque" value="Recebimento Cheque" />
-            Quantidade:
-          <input type="text" name="ConRec_quantidade" disabled="disabled"	id="ConRec_quantidade" value="<?php  ?>" />
-            Total Selecionado:
-          <input type="text" name="ConRec_ttselecionado" disabled="disabled" id="ConRec_ttselecionado" value="<?php  ?>" />
+              <div class="quant_total">
+              
+                  <span  class="ConRec_lb_quantidade" > Quantidade: </span>
+                  <input type="text" name="ConRec_quantidade" disabled="disabled"	id="ConRec_quantidade" value="<?php  ?>" />
+                  
+                  <span  class="ConRec_lb_ttselecionado"> Total Selecionado: </span>
+                  <input type="text" name="ConRec_ttselecionado" disabled="disabled" id="ConRec_ttselecionado" value="<?php  ?>" />
+                  
+              </div>
           <input type="button" name="ConRec_bt_baixar" id="ConRec_bt_baixar" value="Baixar" />
           
         </div>
@@ -131,11 +97,13 @@
         
         	<fieldset>
             	<legend><strong> Informação do Documento </strong> </legend>
-                	Numero: 
-                    <input type="text" name="ConRec_numero" id="ConRec_numero"/>
-                    Venda/Representante:
-                    <input type="text" name="ConRec_venda" id="ConRec_venda"/>
-                    <input type="text" name="ConRec_nome" id="ConRec_nome"/>
+                	<span  class="ConRec_lb_numero"> Numero: </span> 
+                    <input type="text" name="ConRec_numero" id="ConRec_numero" placeholder="Informe o Número"/>
+                    
+                    <span  class="ConRec_lb_venda" > Venda/Representante: </span>
+                    <input type="text" name="ConRec_cod"    id="ConRec_cod" placeholder="Cod"/>
+                    <input type="text" name="ConRec_nome"   id="ConRec_nome" placeholder="Nome representante"/>
+                    
             </fieldset>
             
         </div>
@@ -145,13 +113,13 @@
         <!----FORMULARIO INFERIOR3----->
         <div class="Func_botton3">
         
-        	<fieldset>
+       	  <fieldset>
             	<legend><strong> Status </strong></legend>
-                <input type="checkbox" value="aberto/parcial" name="ConRec_ck1" /> Aberto/Parcial
-                <input type="checkbox" value="baixa_total" name="ConRec_ck2" /> Baixa Total
-                <input type="checkbox" value="adiantamento" name="ConRec_ck3" /> Adiantamento
-                <input type="checkbox" value="todos" name="ConRec_ck4" /> Todos
-            </fieldset>
+                <input type="radio"  value="aberto/parcial" name="ConRec_ck"  id="ConRec_ck1" checked="checked"/> Aberto/Parcial
+                <input type="radio"  value="baixa_total"    name="ConRec_ck"  id="ConRec_ck2"/> Baixa Total
+                <input type="radio"  value="adiantamento"   name="ConRec_ck"  id="ConRec_ck2"/> Adiantamento
+                <input type="radio"  value="todos"          name="ConRec_ck"  id="ConRec_ck4"/> Todos
+          </fieldset>
             
         </div>
         <!---------------------------->
